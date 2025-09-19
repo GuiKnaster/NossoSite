@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para a Geóloga mais linda</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #fff6f6, #e6f7ff);
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    h1 {
+      color: #e63946;
+    }
+    img {
+      width: 50%;
+      max-width: 500px;
+      border-radius: 15px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+      background: rgba(255,255,255,0.6);
+      padding: 18px;
+      border-radius: 12px;
+    }
+    h2 {
+      margin-top: 28px;
+    }
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+      height: 150px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    #sim {
+      background: #06d6a0;
+      color: #fff;
+      margin-right: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    #sim:hover { transform: translateY(-3px); }
+    #nao {
+      background: #ef476f;
+      color: #fff;
+      position: absolute;
+      left: 140px;
+      top: 0;
+    }
+    #resultado {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      display: none;
+      color: #1d3557;
+    }
+    @media (max-width: 600px) {
+      img { width: 80%; }
+      .buttons { height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Para a Geóloga mais linda</h1>
+
+  <img src="https://i.imgur.com/VASZvcL.jpg" alt="foto dela">
+
+  <p>
+    Estou gostando muito de conversar e te conhecer… com você eu voltei a sentir uma animação em conhecer alguém de verdade,
+    algo que já fazia tempo que eu não sentia.
+    <br><br>
+    Mesmo você sendo meio chata às vezes 😜 e mais ocupada que o presidente hahaha, você quebrou totalmente as expectativas e
+    os pensamentos que eu tinha de você no começo.
+    <br><br>
+    A versão sua que eu conheci foi justamente o que me animou a querer tentar algo de verdade.
+    <br><br>
+    Por isso, pode até parecer que eu sou emocionado, mas a real é que dessa vez eu queria que desse certo de verdade.
+    <br><br>
+    Sei que pode ser difícil, porque vão ter momentos em que não vamos estar tão perto um do outro, mas não vou desistir se você
+    estiver comigo também. Vejo muito valor em você, e se os dois lutarem para que dê certo, vai dar.
+  </p>
+
+  <p>
+    Quis também te dar três cartinhas de Pokémon, mas não são só cartinhas.  
+    <br><br>
+    O <b>Vulpix normal</b> é o jeito clássico, fofo e encantador, que lembra bastante você.  
+    <br><br>
+    O <b>Vulpix de Alola</b> mostra um lado diferente, especial e cheio de brilho, como quando você surpreende sem eu esperar.  
+    <br><br>
+    E o <b>Cubone</b>, que eu sei que é o seu preferido, tem aquela história marcante de usar o crânio da mãe… pesado, mas mostra força mesmo na dor. Isso combina contigo, porque vejo em você uma força real, mesmo quando a vida não facilita.  
+    <br><br>
+    Então não é só presente, é um jeito de mostrar que cada um deles tem um pouco de você neles.
+  </p>
+
+  <h2>Gostou do nosso encontro?</h2>
+  <div class="buttons">
+    <button id="sim">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+
+  <div id="resultado">
+    Eu sabiaaa kk 😏<br>
+    Agora manda uma msg pra mim pra combinarmos o segundo encontro.
+  </div>
+
+  <script>
+    const naoBtn = document.getElementById("nao");
+    const simBtn = document.getElementById("sim");
+    const resultado = document.getElementById("resultado");
+    const buttonsDiv = document.querySelector(".buttons");
+
+    // Faz o botão "Não" fugir
+    naoBtn.addEventListener("mouseover", () => {
+      const maxX = Math.max(0, buttonsDiv.clientWidth - naoBtn.clientWidth);
+      const maxY = Math.max(0, buttonsDiv.clientHeight - naoBtn.clientHeight);
+      const randomX = Math.floor(Math.random() * (maxX + 1));
+      const randomY = Math.floor(Math.random() * (maxY + 1));
+      naoBtn.style.left = randomX + "px";
+      naoBtn.style.top = randomY + "px";
+    });
+
+    // Quando clicar no "Sim"
+    simBtn.addEventListener("click", () => {
+      resultado.style.display = "block";
+      resultado.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  </script>
+</body>
+</html>
