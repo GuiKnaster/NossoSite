@@ -18,8 +18,8 @@
       color: #e63946;
     }
     img {
-      width: 50%;
-      max-width: 500px;
+      width: 70%;
+      max-width: 400px;
       border-radius: 15px;
       margin: 20px auto;
       display: block;
@@ -43,33 +43,33 @@
     .buttons {
       margin-top: 20px;
       position: relative;
-      height: 150px;
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
     button {
-      padding: 12px 20px;
-      font-size: 16px;
+      padding: 14px 22px;
+      font-size: 18px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.25s;
+      min-width: 100px;
     }
     #sim {
       background: #06d6a0;
       color: #fff;
-      margin-right: 12px;
-      position: relative;
       z-index: 2;
     }
     #sim:hover { transform: translateY(-3px); }
     #nao {
       background: #ef476f;
       color: #fff;
-      position: absolute;
-      left: 140px;
-      top: 0;
+      position: relative; /* começa alinhado */
     }
     #resultado {
       margin-top: 25px;
@@ -79,8 +79,9 @@
       color: #1d3557;
     }
     @media (max-width: 600px) {
-      img { width: 80%; }
-      .buttons { height: 120px; }
+      img { width: 85%; }
+      .buttons { gap: 10px; }
+      button { min-width: 120px; font-size: 16px; }
     }
   </style>
 </head>
@@ -123,7 +124,7 @@
   </div>
 
   <div id="resultado">
-    Eu sabiaaa kk 😏<br>
+    Eu sabiaaa kk <br> 
     Agora manda uma msg pra mim pra combinarmos o segundo encontro.
   </div>
 
@@ -135,6 +136,7 @@
 
     // Faz o botão "Não" fugir
     naoBtn.addEventListener("mouseover", () => {
+      naoBtn.style.position = "absolute"; // muda para absoluto só quando foge
       const maxX = Math.max(0, buttonsDiv.clientWidth - naoBtn.clientWidth);
       const maxY = Math.max(0, buttonsDiv.clientHeight - naoBtn.clientHeight);
       const randomX = Math.floor(Math.random() * (maxX + 1));
